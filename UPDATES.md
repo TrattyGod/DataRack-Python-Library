@@ -13,3 +13,7 @@
 5. Version 1.1.1
 - Backend rework for ID related functions (more efficient and less error prone now)
 - New functions, for DataNode class, and for inserting DataNodes/reading more types of data
+
+6. Version 1.2.0
+- New "find" function
+- Various optimizations
