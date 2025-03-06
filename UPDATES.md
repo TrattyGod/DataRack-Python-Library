@@ -1,10 +1,10 @@
-**UPDATES**
+# UPDATES
 
 **1. Version 1.0.0**
 - Initial release
 
 **2. Version 1.0.1**
-- CVS tools
+- CSV tools and compatibility
 
 **4. Version 1.1.0**
 - Function name change overhaul
