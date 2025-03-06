@@ -80,3 +80,26 @@ add_node() takes 5 parameters:
 3. values (List) - All of the data for each category, must be same length as datanode.categories
 5. File name (String)
 6. File location (String) *Optional, if not specified will be set to the project directory*
+
+Similarly, insert_node() allows you to insert a chunk of data somewhere in a file, using an index
+
+insert_node() takes 6 parameters:
+1. datanode (DataNode)
+2. index (Int) - The index, each DataNode gets an index based on where it is located 
+3. ID (String) - A "tag" associated with the data that makes it easier to access
+4. values (List) - All of the data for each category, must be same length as datanode.categories
+5. File name (String)
+6. File location (String) *Optional, if not specified will be set to the project directory*
+
+```python
+# Creates a DataNode, file, and adds some data to the file
+person = DataNode(["Name", "Age", "Gender"])
+
+create_file("PEOPLE.txt")
+
+add_node(person, "Default", ["Bob", "57", "Male"], "test.txt")
+add_node(person, "Default", ["Marie", "25", "Female"], "test.txt")
+
+# inserts node in between "Bob" and "Marie"
+insert_node(person, 1, "Default", ["Mark", 15, "Male"], "test.txt")
+```
