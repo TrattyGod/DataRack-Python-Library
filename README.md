@@ -1,11 +1,29 @@
 # Documentation
 
-- [Main Title](#Main-Title)
-- [Data Nodes](##DataNodes)
-- [Creating Files](##CreatingFiles)
-- [Adding DataNodes](##AddingDataNodes)
-- [Deleting DataNodes](##DeletingDataNodes)
+- [Installing and Importing](#Installing-and-Importing)
+- [Data Nodes](##Data-Nodes)
+- [Creating Files](##Creating-Files)
+- [Adding DataNodes](##Adding-DataNodes)
+- [Deleting DataNodes](##Deleting-DataNodes)
+- [Replacing DataNodes](##Replacing-DataNodes)
+- [Reading DataNodes](##Reading-DataNodes)
+- [Filtering](##Filtering)
+- [Other](##Other)
+- [CSV Tools](##CSVTools)
 
+
+## Installing and Importing
+
+Luckily, installing DataRack is extremely simple
+
+```bash
+pip install datarack
+```
+
+To import it into your python project, use:
+```python
+from DataRack import *
+```
 
 ## DataNodes
 
@@ -137,3 +155,41 @@ remove_by_id() takes 4 parameters:
 4. File location (String) *Optional, if not specified will be set to the project directory*
 
 remove_by_id() will only remove the first DataNode it finds. To remove all DataNodes with the specified ID, use remove_all_by_id() *Same Parameters*
+
+## Replacing DataNodes
+
+If you want to replace a node, you can do so in multiple different ways:
+
+```python
+# Creates a DataNode
+person = DataNode(["Name", "Age", "Gender"])
+
+create_file("PEOPLE.txt")
+
+add_node(person, "Default", ["Bob", "57", "Male"], "test.txt")
+add_node(person, "Default", ["Marie", "25", "Female"], "test.txt")
+
+# replaces DataNode with index 1
+replace_node(person, 1, "New ID", ["New name", "New age", "New gender"], "test.txt")
+```
+
+replace_node() takes 6 parameters:
+1. datanode (DataNode)
+2. index (Int) - The index, each DataNode gets an index based on where it is located
+3. ID (String) - The new ID
+4. values (List) - The new values
+5. File name (String)
+6. File location (String) *Optional, if not specified will be set to the project directory*
+
+**Alternataly, you can replace nodes by their ID**
+
+replace_by_id() takes 7 parameters:
+1. datanode (DataNode)
+2. index (Int) - The index, each DataNode gets an index based on where it is located
+3. ID (String) - The ID of the DataNode you want to replace
+4. newID (String) - The new ID
+5. values (List) - The new values
+6. File name (String)
+7. File location (String) *Optional, if not specified will be set to the project directory*
+
+replace_by_id() will only replace the first DataNode it finds. To replace all DataNodes with the specified ID, use replace_all_by_id() *Same Parameters*
