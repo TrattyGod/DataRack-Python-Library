@@ -1,0 +1,19 @@
+[project]
+name = "datarack"
+version = "1.0.0"
+authors = [
+  { name="Arman Pefourque", email="armanpefo@gmail.com" },
+]
+description = "Organize data quickly and easily in .txt files"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "DataRack"
+license-files = ["LICEN[CS]E*"]
+
+[project.urls]
+Homepage = "https://github.com/pypa/sampleproject"
+Issues = "https://github.com/pypa/sampleproject/issues"
