@@ -1,19 +1,35 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "datarack"
-version = "1.0.0"
-authors = [
-  { name="Arman Pefourque", email="armanpefo@gmail.com" },
-]
-description = "Organize data quickly and easily in .txt files"
-readme = "README.md"
-requires-python = ">=3.8"
-classifiers = [
-    "Programming Language :: Python :: 3",
-    "Operating System :: OS Independent",
-]
-license = "DataRack"
-license-files = ["LICEN[CS]E*"]
+version = "1.2.1"
+description = "Manage data easily and efficiently"
 
-[project.urls]
-Homepage = "https://github.com/pypa/sampleproject"
-Issues = "https://github.com/pypa/sampleproject/issues"
+authors = [
+    { name = "TrattyGod" }
+]
+
+license = { file = "LICENSE" }
+readme = "README.md"
+readme-content-type = "text/markdown"  
+
+repository = "https://github.com/TrattyGod/DataRack-Python-Library/"
+keywords = ["data", "storage", "data-management"]  # Add relevant keywords
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10"
+]  
+
+[project.dependencies]
+numpy = ">=1.21"
+pandas = ">=1.3"
+
+[tool.setuptools.packages.find]
+include = ["datarack"]
