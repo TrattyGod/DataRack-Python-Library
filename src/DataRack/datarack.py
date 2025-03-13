@@ -398,7 +398,7 @@ def read_all_by_id(datanode, ID, name, location=None):
    
     all_data = []
 
-    index = get_all_idx_from_id(person, ID, file_path)
+    index = get_all_idx_from_id(datanode, ID, file_path)
     for idx in index:
         all_data.append(read_node(datanode, idx, file_path))
                    
