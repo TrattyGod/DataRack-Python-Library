@@ -51,18 +51,18 @@ Creating files in DataRack is extremely simple
 create_file("DataFile.txt")
 ```
 
-create_file() takes 2 parameters:
+`create_file()` takes 2 parameters:
 1. File name (String)
 2. File location (String) *Optional, if not specified will be set to the project directory*
 
-clear_file() does the same thing. 
+`clear_file()` does the same thing. 
 
 ```python
 # Clears the file, and creates it if it doesn't find it
 clear_file("DataFile.txt")
 ```
 
-Both functions will auto-create a file if they don't find one. Additionally, files created using the module will have a <<DataRack File, Do Not Manually Edit>> header. Files used by this module must have this header, and shouldn't be manually edited.
+Both functions will auto-create a file if they don't find one. Additionally, files created using the module will have a << DataRack File, Do Not Manually Edit >> header. Files used by this module must have this header, and shouldn't be manually edited.
 
 ## Adding DataNodes
 
@@ -81,7 +81,7 @@ add_node(person, "Default", ["Marie", "25", "Female"], "test.txt")
 The file will look like this:
 
 ```text
-<<DataRack File, Do Not Manually Edit>>
+<< DataRack File, Do Not Manually Edit >>
 
 ID: Default
 NAME: Bob
@@ -94,7 +94,7 @@ AGE: 25
 GENDER: Female
 ```
 
-add_node() takes 5 parameters:
+`add_node()` takes 5 parameters:
 1. datanode (DataNode)
 2. ID (String) - A "tag" associated with the data that makes it easier to access
 3. values (List) - All of the data for each category, must be same length as datanode.categories
@@ -103,7 +103,7 @@ add_node() takes 5 parameters:
 
 **Similarly, insert_node() allows you to insert a chunk of data somewhere in a file, using an index**
 
-insert_node() takes 6 parameters:
+`insert_node()` takes 6 parameters:
 1. datanode (DataNode)
 2. index (Int) - The index, each DataNode gets an index based on where it is located 
 3. ID (String) - A "tag" associated with the data that makes it easier to access
@@ -141,7 +141,7 @@ add_node(person, "Default", ["Marie", "25", "Female"], "test.txt")
 remove_node(person, 1, "test.txt")
 ```
 
-remove_node() takes 4 parameters:
+`remove_node()` takes 4 parameters:
 1. datanode (DataNode)
 2. index (Int) - The index, each DataNode gets an index based on where it is located 
 3. File name (String)
@@ -149,13 +149,13 @@ remove_node() takes 4 parameters:
 
 **Alternataly, you can remove nodes by their ID**
 
-remove_by_id() takes 4 parameters:
+`remove_by_id()` takes 4 parameters:
 1. datanode (DataNode)
 2. ID (String) - The ID of the DataNodes you want to remove
 3. File name (String)
 4. File location (String) *Optional, if not specified will be set to the project directory*
 
-remove_by_id() will only remove the first DataNode it finds. To remove all DataNodes with the specified ID, use remove_all_by_id() *Same Parameters*
+`remove_by_id()` will only remove the first DataNode it finds. To remove all DataNodes with the specified ID, use `remove_all_by_id()` *Same Parameters*
 
 ## Replacing DataNodes
 
@@ -174,7 +174,7 @@ add_node(person, "Default", ["Marie", "25", "Female"], "test.txt")
 replace_node(person, 1, "New ID", ["New name", "New age", "New gender"], "test.txt")
 ```
 
-replace_node() takes 6 parameters:
+`replace_node()` takes 6 parameters:
 1. datanode (DataNode)
 2. index (Int) - The index, each DataNode gets an index based on where it is located
 3. ID (String) - The new ID
@@ -184,7 +184,7 @@ replace_node() takes 6 parameters:
 
 **Alternataly, you can replace nodes by their ID**
 
-replace_by_id() takes 7 parameters:
+`replace_by_id()` takes 7 parameters:
 1. datanode (DataNode)
 2. index (Int) - The index, each DataNode gets an index based on where it is located
 3. ID (String) - The ID of the DataNode you want to replace
@@ -193,4 +193,4 @@ replace_by_id() takes 7 parameters:
 6. File name (String)
 7. File location (String) *Optional, if not specified will be set to the project directory*
 
-replace_by_id() will only replace the first DataNode it finds. To replace all DataNodes with the specified ID, use replace_all_by_id() *Same Parameters*
+`replace_by_id()` will only replace the first DataNode it finds. To replace all DataNodes with the specified ID, use `replace_all_by_id()` *Same Parameters*
