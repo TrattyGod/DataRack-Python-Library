@@ -1,5 +1,6 @@
 import os
 import csv
+import sys
 
 
 
@@ -38,7 +39,7 @@ def create_file(name, location=None):
     if (location != None):
         file_path = os.path.join(location, name)
     else:
-        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), name)
+        file_path = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), name)
 
     with open(file_path, "w") as file:
         file.write("<< DataRack File, Do Not Manually Edit >>")
@@ -60,7 +61,7 @@ def clear_file(name, location=None):
     if (location != None):
         file_path = os.path.join(location, name)
     else:
-        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), name)
+        file_path = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), name)
 
     with open(file_path, "w") as file:
         file.write("<< DataRack File, Do Not Manually Edit >>")
@@ -87,7 +88,7 @@ def get_idx_from_id(datanode, ID, name, location=None):
     if (location != None):
         file_path = os.path.join(location, name)
     else:
-        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), name)
+        file_path = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), name)
 
     all_nodes = read_all(datanode, file_path)
     idx = 0
@@ -117,7 +118,7 @@ def get_all_idx_from_id(datanode, ID, name, location=None):
     if (location != None):
         file_path = os.path.join(location, name)
     else:
-        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), name)
+        file_path = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), name)
 
     all_nodes = read_all(datanode, file_path)
     all_idx = []
@@ -146,7 +147,7 @@ def add_node(datanode, ID, values, name, location=None):
     if (location != None):
         file_path = os.path.join(location, name)
     else:
-        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), name)
+        file_path = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), name)
 
     idx = 0
     with open(file_path, "a") as file:
@@ -176,7 +177,7 @@ def insert_node(datanode, index, ID, values, name, location=None):
     if (location != None):
         file_path = os.path.join(location, name)
     else:
-        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), name)
+        file_path = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), name)
 
     with open(file_path, "r") as file:
         lines = file.readlines()
@@ -218,7 +219,7 @@ def remove_node(datanode, idx, name, location=None):
     if (location != None):
         file_path = os.path.join(location, name)
     else:
-        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), name)
+        file_path = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), name)
 
     lineNum = 3 + (idx * (len(datanode.categories) + 2))
     linesToRemove = []
@@ -259,7 +260,7 @@ def replace_node(datanode, index, ID, values, name, location=None):
     if (location != None):
         file_path = os.path.join(location, name)
     else:
-        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), name)
+        file_path = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), name)
 
     remove_node(datanode, index, file_path)
     insert_node(datanode, index, ID, values, file_path)
@@ -281,7 +282,7 @@ def replace_by_id(datanode, ID, newID, values, name, location=None):
     if (location != None):
         file_path = os.path.join(location, name)
     else:
-        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), name)
+        file_path = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), name)
     
     idx = get_idx_from_id(datanode, ID, file_path)
     replace_node(datanode, idx, newID, values, file_path)
@@ -303,7 +304,7 @@ def replace_all_by_id(datanode, ID, newID, values, name, location=None):
     if (location != None):
         file_path = os.path.join(location, name)
     else:
-        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), name)
+        file_path = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), name)
     
     idx = get_all_idx_from_id(datanode, ID, file_path)
 
@@ -328,7 +329,7 @@ def read_node(datanode, idx, name, location=None):
     if (location != None):
         file_path = os.path.join(location, name)
     else:
-        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), name)
+        file_path = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), name)
 
     lineNum = 3 + (idx * (len(datanode.categories) + 2))
     data = []
@@ -364,7 +365,7 @@ def read_by_id(datanode, ID, name, location=None):
     if (location != None):
         file_path = os.path.join(location, name)
     else:
-        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), name)
+        file_path = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), name)
    
     data = []
    
@@ -394,7 +395,7 @@ def read_all_by_id(datanode, ID, name, location=None):
     if (location != None):
         file_path = os.path.join(location, name)
     else:
-        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), name)
+        file_path = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), name)
    
     all_data = []
 
@@ -419,7 +420,7 @@ def remove_by_id(datanode, ID, name, location=None):
     if (location != None):
         file_path = os.path.join(location, name)
     else:
-        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), name)
+        file_path = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), name)
 
     index = get_idx_from_id(datanode, ID, file_path)
     remove_node(datanode, index, file_path)
@@ -439,7 +440,7 @@ def remove_all_by_id(datanode, ID, name, location=None):
     if (location != None):
         file_path = os.path.join(location, name)
     else:
-        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), name)
+        file_path = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), name)
     
     while True:
         remove_by_id(datanode, ID, name, location)
@@ -473,7 +474,7 @@ def read_all(datanode, name, location=None):
     if location != None:
         file_path = os.path.join(location, name)
     else:
-        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), name)
+        file_path = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), name)
 
     all_data = []
 
@@ -512,7 +513,7 @@ def find_node(datanode, ID, values, findAll, name, location=None):
     if (location != None):
         file_path = os.path.join(location, name)
     else:
-        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), name)
+        file_path = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), name)
 
     if (ID == "#"):
         all_nodes = read_all(datanode, file_path)
@@ -558,7 +559,7 @@ def csv_to_node(name, location=None):
     if location != None:
         file_path = os.path.join(location, name)
     else:
-        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), name)
+        file_path = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), name)
 
     with open(file_path, 'r') as file:
         reader = csv.reader(file)  
@@ -588,12 +589,12 @@ def csv_to_text(datanode, ID, csv_name, name, csv_location=None, location=None):
     if location != None:
         file_path = os.path.join(location, name)
     else:
-        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), name)
+        file_path = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), name)
 
     if csv_location != None:
         csv_file_path = os.path.join(csv_location, csv_name)
     else:
-        csv_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), csv_name)
+        csv_file_path = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), csv_name)
 
     with open(csv_file_path, 'r') as file:
         reader = csv.reader(file)
@@ -613,7 +614,7 @@ def csv_to_text(datanode, ID, csv_name, name, csv_location=None, location=None):
 
 def text_to_csv(datanode, csv_name, name, csv_location=None, location=None):
     """
-    Uses DataNode object to fill a csv file with the contents of a DataRack text file. IDs are excluded.
+    Uses DataNode object to fill a csv file with the contents of a DataRack text file.
 
     Parameters:
     datanode (DataNode) - the DataNode object of the file
@@ -625,16 +626,18 @@ def text_to_csv(datanode, csv_name, name, csv_location=None, location=None):
     if location != None:
         file_path = os.path.join(location, name)
     else:
-        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), name)
+        file_path = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), name)
 
     if csv_location != None:
         csv_file_path = os.path.join(csv_location, csv_name)
     else:
-        csv_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), csv_name)
+        csv_file_path = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), csv_name)
 
     data = []
-
-    data.append(datanode.categories)
+    first_row = datanode.categories
+    print(first_row)
+    
+    data.append(first_row)
     rows = read_all(datanode, name, location)
 
     for row in rows:
@@ -642,6 +645,8 @@ def text_to_csv(datanode, csv_name, name, csv_location=None, location=None):
             row = [item.lstrip() for item in row]
         data.append(row)
     
+    data[0].insert(0, "ID")
+
     with open(csv_file_path, mode="w", newline="") as file:
         writer = csv.writer(file)
         writer.writerows(data)

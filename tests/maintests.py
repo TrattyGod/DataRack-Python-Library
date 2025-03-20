@@ -18,4 +18,6 @@ add_node(test, "2", ["2.1", "2.2", "2.3"], "test.txt")
 add_node(test, "3", ["3.1", "3.2", "3.3"], "test.txt")
 insert_node(test, 2, "4", ["4.1", "4.2", "4.3"], "test.txt")
 
+text_to_csv(test, "test.csv", "test.txt")
+
 # More testing will be done in the future
