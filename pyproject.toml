@@ -6,18 +6,12 @@ build-backend = "setuptools.build_meta"
 name = "datarack"
 version = "0.2.5"
 description = "Manage data easily and efficiently"
-
 authors = [
     { name = "TrattyGod" }
 ]
-
 license = { file = "LICENSE" }
 readme = "README.md"
-readme-content-type = "text/markdown"  
-
-repository = "https://github.com/TrattyGod/DataRack-Python-Library/"
-keywords = ["data", "storage", "data-management"]  # Add relevant keywords
-
+keywords = ["data", "storage", "data-management"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
@@ -25,11 +19,10 @@ classifiers = [
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10"
-]  
+]
 
-[project.dependencies]
-numpy = ">=1.21"
-pandas = ">=1.3"
+[project.urls]
+Homepage = "https://github.com/TrattyGod/DataRack-Python-Library/"
 
 [tool.setuptools.packages.find]
 include = ["datarack"]

@@ -1,0 +1,7 @@
+LICENSE
+README.md
+pyproject.toml
+datarack.egg-info/PKG-INFO
+datarack.egg-info/SOURCES.txt
+datarack.egg-info/dependency_links.txt
+datarack.egg-info/top_level.txt
