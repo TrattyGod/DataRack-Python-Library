@@ -271,7 +271,7 @@ These are 2 functions which usually aren't useful, but may be needed in some cas
 3. name (String)
 4. location (String) *Optional, if not specified will be set to the project directory*
 
-Returns: index of DataNode in file (Int)
+Returns: index of first DataNode in file with specified ID (Int)
 
 `get_all_idx_from_id()` takes 4 parameters:
 1. datanode (DataNode)
@@ -279,7 +279,7 @@ Returns: index of DataNode in file (Int)
 3. name (String)
 4. location (String) *Optional, if not specified will be set to the project directory*
 
-Returns: list of indexes of DataNodes in file
+Returns: list of indexes of all DataNodes in file with the specified ID
 
 ## CSV Tools
 

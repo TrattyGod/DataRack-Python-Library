@@ -26,3 +26,4 @@ Homepage = "https://github.com/TrattyGod/DataRack-Python-Library/"
 
 [tool.setuptools.packages.find]
 include = ["datarack"]
+where = ["src"]
